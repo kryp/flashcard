@@ -11,14 +11,20 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import environ
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('project')
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(f"BASE_DIR: {BASE_DIR}")
+print(ROOT_DIR)
 env = environ.Env()
+print(env)
 
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
+# exit(1)
+
+READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=True)
 
 if READ_DOT_ENV_FILE:
     env_file = str(ROOT_DIR.path('.env'))

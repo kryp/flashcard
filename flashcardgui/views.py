@@ -26,12 +26,22 @@ def home(request):
         return render(request, 'flashcardgui/index.html', context)
 
 
+@login_required
 def profile(request):
     """
     ...
     """
+    context = {}
     if request.method == 'GET':
         pass
+    return render(request, 'flashcardgui/profile.html', context)
+
+
+
+@login_required
+def deckimport(request):
+    importdir = "/home/claudius/Nextcloud/data/anki"
+    return render(request, 'flashcardgui/profile.html', context)
 
 
 def about(request):
